@@ -11,8 +11,10 @@ import { PokemonService } from '../pokemon.service';
 export class PokemonsComponent implements OnInit {
 
   pokemonsFull: Pokemon[];
+  pokemonsFiltered: Pokemon[];
   pokemonsDisplayed: Pokemon[];
 
+  currentSearch: string;
   currentPage: number;
   totalPages: number;
   ITEMS_PER_PAGE = 20;
@@ -20,6 +22,7 @@ export class PokemonsComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.currentSearch = "";
     this.currentPage = 1;
     this.getPokemons();
   }
@@ -28,18 +31,26 @@ export class PokemonsComponent implements OnInit {
     this.pokemonService.getPokemons()
       .subscribe(pokemons => {
         this.pokemonsFull = pokemons;
-        this.updateDisplayedPokemons();
+        this.updateFilteredPokemons();
       });
   }
 
+  updateFilteredPokemons(): void {
+    this.pokemonsFiltered =
+      this.pokemonsFull
+        .filter((pokemon) => pokemon.name.match(new RegExp(this.currentSearch, 'i')));
+
+    this.updateDisplayedPokemons();
+  }
+
   updateDisplayedPokemons(): void {
-    this.totalPages = Math.ceil(this.pokemonsFull.length / this.ITEMS_PER_PAGE);
+    this.totalPages = Math.ceil(this.pokemonsFiltered.length / this.ITEMS_PER_PAGE);
 
     if (this.currentPage < 1) this.currentPage = 1;
     if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
 
     this.pokemonsDisplayed =
-      this.pokemonsFull
+      this.pokemonsFiltered
         .slice((this.currentPage-1) * this.ITEMS_PER_PAGE)
         .slice(0, this.ITEMS_PER_PAGE);
   }
@@ -52,6 +63,11 @@ export class PokemonsComponent implements OnInit {
   previousPage(): void {
     this.currentPage = this.currentPage - 1;
     this.updateDisplayedPokemons();
+  }
+
+  search(keyword: string) {
+    this.currentSearch = keyword;
+    this.updateFilteredPokemons();
   }
 
 }

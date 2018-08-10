@@ -6,6 +6,8 @@
     <button class="btn btn-primary" (click)="previousPage()"> << Prev 20 </button>
   </div>
 
+  <input #searchBox class="form-control" (keyup)="search(searchBox.value)"/>
+
   <div class="input-group-append">
     <button class="btn btn-primary" (click)="nextPage()"> Next 20 >> </button>
   </div>
