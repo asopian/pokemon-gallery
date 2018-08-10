@@ -11,7 +11,14 @@ import { Pokemon } from './pokemon';
 })
 export class PokemonService {
 
+  // ---------- Remote URL
   private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  // private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20"';  // paging
+  // private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/1/';  // Pokemon detail
+
+  // ---------- Local URL
+  // private pokeapiUrl = 'assets/pokeapi_151.json';
+  // private pokeapiUrl = 'assets/pokeapi_949.json';
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +30,7 @@ export class PokemonService {
     const convertToPokemonArray = map((value: Object) => {
         var objList = value['results'];
         var pokemons = objList.map( (pokemon, index) => {
-          return new Pokemon( pokemon.url, pokemon.name, index+1 );
+          return new Pokemon( pokemon.url, pokemon.name);
         });
         return pokemons;
       });
