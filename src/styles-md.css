@@ -1,0 +1,8 @@
+.header-container-md {
+	/*background-size: contain;*/
+}
+
+.header-container-md h1 span {
+	line-height: 2.3em;
+	font-size: 2em;
+}
