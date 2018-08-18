@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('./styles-sm.css') only screen and (max-width: 767px);
-@import url('./styles-md.css') only screen and (min-width: 768px) and (max-width: 1199px);
+@import url('./styles-xs.css') only screen and (max-width: 576px);
+@import url('./styles-sm.css') only screen and (min-width: 576px) and (max-width: 768px);
+@import url('./styles-md.css') only screen and (min-width: 768px) and (max-width: 992px);
+@import url('./styles-lg.css') only screen and (min-width: 992px) and (max-width: 1200px);
 @import url('./styles-xl.css') only screen and (min-width: 1200px);
 
 
@@ -32,4 +34,10 @@
 	color: yellow;
 	font-weight: bold;
 	white-space: nowrap;
+}
+
+.header-container-xs h1 span:after {
+	vertical-align: super;
+	font-size: 0.2em;
+	letter-spacing: 0.1em;
 }

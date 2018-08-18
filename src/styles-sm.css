@@ -1,8 +1,8 @@
-.header-container-sm {
-	/*background-size: contain;*/
+.header-container-sm h1 span {
+	line-height: 3.5em;
+	font-size: 1.3em;
 }
 
-.header-container-sm h1 span {
-	line-height: 3em;
-	font-size: 1.5em;
+.header-container-sm h1 span:after {
+	content: '(sm)';
 }

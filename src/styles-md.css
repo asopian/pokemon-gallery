@@ -1,8 +1,8 @@
-.header-container-md {
-	/*background-size: contain;*/
+.header-container-md h1 span {
+	line-height: 2.5em;
+	font-size: 1.8em;
 }
 
-.header-container-md h1 span {
-	line-height: 2.3em;
-	font-size: 2em;
+.header-container-md h1 span:after {
+	content: '(md)';
 }
