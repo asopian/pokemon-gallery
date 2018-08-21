@@ -1,0 +1,51 @@
+
+@import url('./header.component-xs.css') only screen and (max-width: 576px);
+@import url('./header.component-sm.css') only screen and (min-width: 576px) and (max-width: 768px);
+@import url('./header.component-md.css') only screen and (min-width: 768px) and (max-width: 992px);
+@import url('./header.component-lg.css') only screen and (min-width: 992px) and (max-width: 1200px);
+@import url('./header.component-xl.css') only screen and (min-width: 1200px);
+
+
+.header-container {
+	background-image: url('/assets/images/hero-background.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 360px;
+	height: 360px;
+}
+
+.header-container h1 {
+	text-align: center;
+}
+
+
+.header-container h1 span {
+	font-family: Pokemon-Solid;
+	letter-spacing: 0.1em;
+	color: yellow;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.header-container-xs h1 span:after {
+	vertical-align: super;
+	font-size: 0.2em;
+	letter-spacing: 0.1em;
+}
+
+
+/*
+.header-container {
+    width:100%;
+    height: 500px;
+    background: url('/assets/images/hero-background.jpg');
+    background-position: center;
+    background-size:cover;
+    margin-top: -100px;
+}
+
+.header-container h1 {
+    color:white;
+    padding: 50px;
+    padding-top: 170px;
+}
+*/
