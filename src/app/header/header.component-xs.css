@@ -1,8 +1,3 @@
-.header-container-xs h1 span {
-	line-height: 7.25em;
-	font-size: 0.7em;
-}
-
 .header-container-xs h1 span:after {
 	content: '(xs)';
 }

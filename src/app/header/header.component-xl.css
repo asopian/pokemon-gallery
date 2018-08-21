@@ -1,8 +1,3 @@
-.header-container-xl h1 span {
-	line-height: 1.75em;
-	font-size: 2.3em;
-}
-
 .header-container-xl h1 span:after {
 	content: '(xl)';
 }

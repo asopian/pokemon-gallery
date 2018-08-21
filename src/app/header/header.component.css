@@ -9,14 +9,15 @@
 .header-container {
 	background-image: url('/assets/images/hero-background.jpg');
 	background-repeat: no-repeat;
-	background-size: 100% 360px;
-	height: 360px;
+	background-position: center;
+	background-size: cover;
+	height: 30vw;
+	width: 100%;
 }
 
 .header-container h1 {
 	text-align: center;
 }
-
 
 .header-container h1 span {
 	font-family: Pokemon-Solid;
@@ -24,28 +25,12 @@
 	color: yellow;
 	font-weight: bold;
 	white-space: nowrap;
+	line-height: 19vw;
+	font-size: 6vw;
 }
 
-.header-container-xs h1 span:after {
+.header-container h1 span:after {
 	vertical-align: super;
-	font-size: 0.2em;
+	font-size: 2vw;
 	letter-spacing: 0.1em;
 }
-
-
-/*
-.header-container {
-    width:100%;
-    height: 500px;
-    background: url('/assets/images/hero-background.jpg');
-    background-position: center;
-    background-size:cover;
-    margin-top: -100px;
-}
-
-.header-container h1 {
-    color:white;
-    padding: 50px;
-    padding-top: 170px;
-}
-*/
