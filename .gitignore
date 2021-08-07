@@ -10,6 +10,7 @@
 
 # IDEs and editors
 /.idea
+/pokemon-gallery.iml
 .project
 .classpath
 .c9/
