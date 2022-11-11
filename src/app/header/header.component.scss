@@ -1,9 +1,9 @@
 
-@import url('./header.component-xs.css') only screen and (max-width: 576px);
-@import url('./header.component-sm.css') only screen and (min-width: 576px) and (max-width: 768px);
-@import url('./header.component-md.css') only screen and (min-width: 768px) and (max-width: 992px);
-@import url('./header.component-lg.css') only screen and (min-width: 992px) and (max-width: 1200px);
-@import url('./header.component-xl.css') only screen and (min-width: 1200px);
+@import url('./header.component-xs.scss') only screen and (max-width: 576px);
+@import url('./header.component-sm.scss') only screen and (min-width: 576px) and (max-width: 768px);
+@import url('./header.component-md.scss') only screen and (min-width: 768px) and (max-width: 992px);
+@import url('./header.component-lg.scss') only screen and (min-width: 992px) and (max-width: 1200px);
+@import url('./header.component-xl.scss') only screen and (min-width: 1200px);
 
 
 .header-container {

@@ -6,24 +6,22 @@ import { PokemonService } from '../pokemon.service';
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
-  styleUrls: ['./pokemons.component.css']
+  styleUrls: ['./pokemons.component.scss']
 })
 export class PokemonsComponent implements OnInit {
 
-  pokemonsFull: Pokemon[];
-  pokemonsFiltered: Pokemon[];
-  pokemonsDisplayed: Pokemon[];
+  pokemonsFull: Pokemon[] = [];
+  pokemonsFiltered: Pokemon[] = [];
+  pokemonsDisplayed: Pokemon[] = [];
 
-  currentSearch: string;
-  currentPage: number;
-  totalPages: number;
+  currentSearch: string = '';
+  currentPage: number = 1;
+  totalPages: number = 1;
   ITEMS_PER_PAGE = 20;
 
   constructor(private pokemonService: PokemonService) { }
 
-  ngOnInit() {
-    this.currentSearch = "";
-    this.currentPage = 1;
+  ngOnInit(): void {
     this.getPokemons();
   }
 

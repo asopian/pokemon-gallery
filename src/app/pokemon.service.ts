@@ -27,15 +27,15 @@ export class PokemonService {
   /** GET pokemons from the server */
   getPokemons (): Observable<Pokemon[]> {
 
-    const convertToPokemonArray = map((value: Object) => {
+    const convertToPokemonArray = map((value: any) => {
         var objList = value['results'];
-        var pokemons = objList.map( (pokemon, index) => {
+        var pokemons = objList.map( (pokemon: {url: string, name: string}) => {
           return new Pokemon( pokemon.url, pokemon.name);
         });
         return pokemons;
       });
 
-    return convertToPokemonArray(this.http.get<Object>(this.pokeapiUrl)
+    return convertToPokemonArray(this.http.get<any>(this.pokeapiUrl)
       .pipe(
         catchError(this.handleError('getPokemons', []))
       ));
