@@ -19,7 +19,11 @@ export class PokemonsComponent implements OnInit {
   totalPages: number = 1;
   ITEMS_PER_PAGE = 20;
 
-  constructor(private pokemonService: PokemonService) { }
+  imageUrlPrefix: string;
+
+  constructor(private pokemonService: PokemonService) {
+    this.imageUrlPrefix = this.pokemonService.getImageUrlPrefix();
+  }
 
   ngOnInit(): void {
     this.getPokemons();

@@ -12,20 +12,20 @@ import { Pokemon } from './pokemon';
 export class PokemonService {
 
   // ---------- Remote URL
-  private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  // private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
   // private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20"';  // paging
   // private pokeapiUrl = 'https://pokeapi.co/api/v2/pokemon/1/';  // Pokemon detail
 
   // ---------- Local URL
   // private pokeapiUrl = 'assets/pokeapi_151.json';
-  // private pokeapiUrl = 'assets/pokeapi_949.json';
+  private pokeapiUrl = 'assets/pokeapi_949.json';
 
   constructor(private http: HttpClient) { }
 
 
 
   /** GET pokemons from the server */
-  getPokemons (): Observable<Pokemon[]> {
+  getPokemons(): Observable<Pokemon[]> {
 
     const convertToPokemonArray = map((value: any) => {
         var objList = value['results'];
@@ -39,6 +39,16 @@ export class PokemonService {
       .pipe(
         catchError(this.handleError('getPokemons', []))
       ));
+  }
+
+  getImageUrlPrefix(): string {
+    if (this.pokeapiUrl?.startsWith('http')) {
+      return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
+    } else if (this.pokeapiUrl?.startsWith('assets')) {
+      return 'assets/images';
+    } else {
+      return 'unsupported_pokeapiUrl';
+    }
   }
 
   /**
