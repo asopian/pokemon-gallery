@@ -1,38 +1,40 @@
 
 <div class="container">
-<label class="form-control" style="text-align: center"> Page {{currentPage}} / {{totalPages}}</label>
-<div class="input-group">
-  <div class="input-group-prepend">
-    <button class="btn btn-primary" (click)="previousPage()"> &lt;&lt;&nbsp; Prev 20 </button>
-  </div>
+  <label class="form-control" style="text-align: center"> Page {{currentPage}} / {{totalPages}}</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <button class="btn btn-primary" (click)="previousPage()"> &lt;&lt;&nbsp; Prev 20 </button>
+    </div>
 
-  <input #searchBox class="form-control" (keyup)="search(searchBox.value)" placeholder="Enter search term here..." />
+    <input #searchBox class="form-control" (keyup)="search(searchBox.value)" placeholder="Enter search term here..." />
 
-  <div class="input-group-append">
-    <button class="btn btn-primary" (click)="nextPage()"> Next 20 &nbsp;&gt;&gt; </button>
+    <div class="input-group-append">
+      <button class="btn btn-primary" (click)="nextPage()"> Next 20 &nbsp;&gt;&gt; </button>
+    </div>
   </div>
-</div>
 </div>
 
 <br />
 
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-6 col-xl-3" *ngFor="let poke of pokemonsDisplayed">
-      <div class="container">
-        <div class="row pokerow">
-          <div class="col-6 col-md-12 col-xl-12">
-            <img src="{{imageUrlPrefix}}/{{poke.id}}.png" />
-          </div>
-          <div class="col-6 col-md-12 col-xl-12">
-            <div>#{{poke.id}}</div>
-            <div>{{poke.name}}</div>
-          </div>
-          <div class="col-12">
-            <br/>
+    @for (poke of pokemonsDisplayed; track poke) {
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="container">
+          <div class="row pokerow">
+            <div class="col-6 col-md-12 col-xl-12">
+              <img src="{{imageUrlPrefix}}/{{poke.id}}.png" alt="{{poke.name}}"/>
+            </div>
+            <div class="col-6 col-md-12 col-xl-12">
+              <div>#{{poke.id}}</div>
+              <div>{{poke.name}}</div>
+            </div>
+            <div class="col-12">
+              <br/>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    }
   </div>
 </div>
