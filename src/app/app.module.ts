@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,10 +15,11 @@ import { PokemonsComponent } from './pokemons/pokemons.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule
+  ], 
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
   ],
-  providers: [],
   bootstrap: [AppComponent]
-})
+  })
 export class AppModule { }
